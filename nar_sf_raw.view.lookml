@@ -81,7 +81,7 @@
           ) b
           LEFT JOIN ClosedWonOpportunities cwo ON b.Account = cwo.[Client Code]
           WHERE cwo.[Opportunity Owner  Full Name] NOT IN('Ryan Matheny', 'Michele Shareef', 'Nicholas Zundel')
-    persist_for: 1 hour
+    persist_for: 1 hour       # consider sql_trigger_value to have Looker pre-build your table.
     indexes: [Account, OpportunityOwner]
     
   fields:
@@ -126,21 +126,25 @@
     value_format_name: usd
 
   - dimension: "narmnth1"
+    group_label: NAR
     type: number
     sql: ${TABLE}.NARMnth1
     value_format_name: usd
 
   - dimension: "narmnth2"
+    group_label: NAR
     type: number
     sql: ${TABLE}.NARMnth2
     value_format_name: usd
 
   - dimension: "narmnth3"
+    group_label: NAR
     type: number
     sql: ${TABLE}.NARMnth3
     value_format_name: usd
 
   - dimension: "narmnth4"
+    group_label: NAR
     type: number
     sql: ${TABLE}.NARMnth4
     value_format_name: usd
